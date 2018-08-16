@@ -24,6 +24,8 @@ app.pre = function (req, res, type) {
     // Error if the application ID of the request is not for this skill
     if (req.applicationId != applicationId &&
         req.getSession().details.application.applicationId != applicationId) {
+        console.error(req.applicationId);
+        console.error(req.getSession().details.application.applicationId);
         throw "Invalid applicationId";
     }
     // Check that the user has an access token, if they have linked their account
